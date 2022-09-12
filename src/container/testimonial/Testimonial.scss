@@ -1,0 +1,80 @@
+.app__testimonials {
+  width: 60%;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 3rem;
+  background-color: var(--white-color);
+  border-radius: 15px;
+  min-height: 320px;
+  padding: 2rem;
+  box-shadow: 0 0 30px rgba($color: #000000, $alpha: 0.1);
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .app__testimonial-image {
+    display: flex;
+    flex: 0.3;
+    align-items: center;
+    padding: 0 2rem;
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  .app__testimonial-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    p {
+      font-size: 1.25rem;
+      line-height: 1.5;
+    }
+    @media screen and (max-width: 768px) {
+      gap: 2rem;
+    }
+  }
+  .app__testimonial-person {
+    h5 {
+      color: var(--secondary-color);
+    }
+    p {
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+  }
+}
+.app__testimonials-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  .app__testimonials-prevBtn,
+  .app__testimonials-nextBtn {
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    svg {
+      font-weight: 600;
+      color: var(--secondary-color);
+    }
+    &:hover {
+      background-color: var(--secondary-color);
+      svg {
+        color: var(--white-color);
+      }
+    }
+  }
+}

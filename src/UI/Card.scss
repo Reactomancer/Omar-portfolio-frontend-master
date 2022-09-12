@@ -1,0 +1,73 @@
+.app__work-card {
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 1rem;
+  margin: 2rem;
+  transition: box-shadow 0.4s ease-in-out;
+  cursor: pointer;
+  .app__work-img {
+    height: 230px;
+    width: 100%;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+    .app__work-icons {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      border-radius: 15px;
+      height: 100%;
+      opacity: 0;
+      margin: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      .app__flex.icon {
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        font-family: var(--font-base);
+        font-weight: 800;
+        width: 50px;
+        height: 50px;
+        margin: 1rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        svg {
+          color: var(--white-color);
+          height: 50%;
+          width: 50%;
+        }
+      }
+    }
+  }
+  &:hover {
+    box-shadow: 0 0 15px rgb(0, 0, 0 / 50%);
+  }
+}
+.app__work-content {
+  position: relative;
+  padding: 0.5rem;
+  width: 100%;
+  h4 {
+    line-height: 1.5;
+    margin-top: 1rem;
+  }
+  p {
+    position: absolute;
+    top: -25px;
+    background: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+  }
+}

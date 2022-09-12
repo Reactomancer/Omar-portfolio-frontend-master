@@ -1,0 +1,17 @@
+.app__brands {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  img {
+    width: 150px;
+    margin: 1.5rem;
+    border-radius: 15px;
+    filter: grayscale(1);
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+}
