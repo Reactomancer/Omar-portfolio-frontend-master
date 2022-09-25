@@ -45,6 +45,7 @@ const Skills = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
     <>
       <h2 className="head-text">
