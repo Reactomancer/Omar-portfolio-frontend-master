@@ -34,7 +34,7 @@ const Skills = () => {
         axios.get(`${API_URL}experiences`),
       ]);
       console.log(skills, experiences);
-      setIcons(skills.data[0].icons);
+      setIcons(skills.data);
       setExperiences(experiences.data);
     } catch (error) {
       console.log(error);
