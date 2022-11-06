@@ -20,10 +20,15 @@ const scaleVariants = {
 
 const Header = () => {
   const [cvURL, setCvURL] = useState("");
+  const [data, setData] = useState({});
+
   const getCV = async () => {
     const cv = await axios.get(`${API_URL}download`, {
       responseType: "arraybuffer",
     });
+    const namePositionData = await axios.get(`${API_URL}personal`);
+    setData(namePositionData.data[0]);
+
     const url = window.URL.createObjectURL(
       new Blob([cv.data], { type: "application/pdf" })
     );
@@ -32,6 +37,7 @@ const Header = () => {
   useEffect(() => {
     getCV();
   }, []);
+
   return (
     <Suspense fallback={<FadeLoader />}>
       <div id="home" className="app__header app__flex">
@@ -45,11 +51,11 @@ const Header = () => {
               <span>👋🏻</span>
               <div style={{ marginLeft: 20 }}>
                 <p className="p-text">Hello, I am</p>
-                <h1 className="head-text">Omar</h1>
+                <h1 className="head-text">{data.name}</h1>
               </div>
             </div>
             <div className="tag-cmp app__flex">
-              <p className="p-text">Web Developer</p>
+              <p className="p-text">{data.position}</p>
               <p className="p-text">Freelancer</p>
             </div>
             <div className="tag-cmp app__flex">
