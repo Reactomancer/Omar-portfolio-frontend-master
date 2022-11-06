@@ -59,7 +59,7 @@ const Header = () => {
               <p className="p-text">Freelancer</p>
             </div>
             <div className="tag-cmp app__flex">
-              <a href={cvURL} className="app__cv-link p-text">
+              <a href={data.cvLink} className="app__cv-link p-text">
                 Download Resume
                 <BsDownload />
               </a>
