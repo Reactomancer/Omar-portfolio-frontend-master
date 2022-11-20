@@ -33,23 +33,6 @@ const Work = () => {
       <h2 className="head-text">
         My Creative <span>Portfolio</span> Section
       </h2>
-      <div className="app__work-filter">
-        {["UI/UX", "Web App", "Mobile App", "React JS", "All"].map(
-          (item, idx) => (
-            <div
-              className={`app__work-filter-item app__flex p-text ${
-                activeFilter === item ? "item-active" : ""
-              }`}
-              onClick={() => {
-                handleWorkFilter(item);
-              }}
-              key={idx}
-            >
-              {item}
-            </div>
-          )
-        )}
-      </div>
       <motion.div
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}

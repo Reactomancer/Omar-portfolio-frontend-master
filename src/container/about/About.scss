@@ -10,7 +10,6 @@
   align-items: flex-start;
   flex-wrap: wrap;
   margin-top: 2rem;
-
 }
 .app__profile-item {
   display: flex;
@@ -19,7 +18,7 @@
   flex-direction: column;
   margin: 2rem;
   img {
-    width: 190px;
+    width: auto;
     height: 170px;
     border-radius: 15px;
     object-fit: cover;

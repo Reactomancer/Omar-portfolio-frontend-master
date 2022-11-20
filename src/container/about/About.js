@@ -4,29 +4,24 @@ import { images } from "../../constants";
 import AppWrap from "../../wrapper/AppWrap";
 import MotionWrap from "../../wrapper/MotionWrap";
 import "./About.scss";
-const abouts = [
-  {
-    title: "Web development",
-    description: "I am a good web developer",
-    imgURL: images.about01,
-  },
-  {
-    title: "Frontend Development",
-    description: "I am a good web designer",
-    imgURL: images.about02,
-  },
-  {
-    title: "Backend Development",
-    description: "I am a good UI/UX developer",
-    imgURL: images.about03,
-  },
-  {
-    title: "MERN Stack",
-    description: "I am a good Frontend developer",
-    imgURL: images.about04,
-  },
-];
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import { API_URL } from "../../config/config";
+
 const About = () => {
+  const [about, setAbout] = useState([]);
+
+  const fetchData = async () => {
+    const response = await axios.get(`${API_URL}about`);
+    if (response.status === 200) {
+      setAbout(response.data);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <>
       <h2 className="head-text app__about">
@@ -36,7 +31,7 @@ const About = () => {
         <span>Good Business</span>
       </h2>
       <div className="app__profiles">
-        {abouts.map((about, index) => (
+        {about.map((about, index) => (
           <motion.div
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: "tween" }}

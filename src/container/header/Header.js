@@ -21,6 +21,12 @@ const scaleVariants = {
 const Header = () => {
   const [cvURL, setCvURL] = useState("");
   const [data, setData] = useState({});
+  const [topSkills, setTopSkills] = useState([]);
+
+  const getTopSkills = async () => {
+    const res = await axios.get(`${API_URL}top-skills`);
+    setTopSkills(res.data);
+  };
 
   const getCV = async () => {
     const cv = await axios.get(`${API_URL}download`, {
@@ -36,6 +42,7 @@ const Header = () => {
   };
   useEffect(() => {
     getCV();
+    getTopSkills();
   }, []);
 
   return (
@@ -85,9 +92,9 @@ const Header = () => {
           whileInView={scaleVariants.whileInView}
           className="app__header-circles"
         >
-          {[images.sass, images.react, images.html].map((circle, index) => (
+          {topSkills.map((circle, index) => (
             <div className="circle-cmp app__flex" key={`circle-${index}`}>
-              <img src={circle} alt="circle" />
+              <img src={circle.image} alt="circle" />
             </div>
           ))}
         </motion.div>
